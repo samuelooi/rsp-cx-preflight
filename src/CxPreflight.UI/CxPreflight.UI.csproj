@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    The sidebar itself (WPF). No Revit references: it talks to Revit only
+    through IPreflightHost, so it also runs in the standalone preview app.
+  -->
+  <PropertyGroup>
+    <TargetFramework>$(RevitTargetFramework)</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>CxPreflight.UI</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CxPreflight.Core\CxPreflight.Core.csproj" />
+  </ItemGroup>
+</Project>

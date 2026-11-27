@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CxPreflight.Addin/CxPreflight.Addin.csproj" />
+    <Project Path="src/CxPreflight.Core/CxPreflight.Core.csproj" />
+    <Project Path="src/CxPreflight.UI/CxPreflight.UI.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CxPreflight.Core.Tests/CxPreflight.Core.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/CxPreflight.Preview/CxPreflight.Preview.csproj" />
+  </Folder>
+</Solution>

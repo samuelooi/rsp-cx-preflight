@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Rules, readiness scoring and project data. No Revit and no WPF here,
+    so it runs in unit tests on any machine. netstandard2.0 loads in
+    Revit 2024 (.NET Framework 4.8) as well as 2025-2027 (.NET 8 / 10).
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>CxPreflight.Core</RootNamespace>
+  </PropertyGroup>
+</Project>

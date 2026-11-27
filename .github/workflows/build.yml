@@ -1,0 +1,34 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet test tests/CxPreflight.Core.Tests
+
+  build:
+    # Compiles against the Revit API reference packages; Revit itself is not needed.
+    needs: test
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        revit: [2024, 2025, 2026, 2027]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: ./scripts/build.ps1 -Versions ${{ matrix.revit }} -Configuration Release -Package
+        shell: pwsh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RSP-CX-Preflight-R${{ matrix.revit }}
+          path: artifacts/dist/RSP-CX-Preflight-R${{ matrix.revit }}.zip

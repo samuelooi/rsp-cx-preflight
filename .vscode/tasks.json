@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build all Revit versions",
+      "type": "shell",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Test Core",
+      "type": "shell",
+      "command": "dotnet test tests/CxPreflight.Core.Tests",
+      "group": "test",
+      "problemMatcher": "$msCompile"
+    },
+    { "label": "Deploy 2024", "type": "shell", "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1 -Versions 2024 -Deploy", "problemMatcher": "$msCompile" },
+    { "label": "Deploy 2025", "type": "shell", "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1 -Versions 2025 -Deploy", "problemMatcher": "$msCompile" },
+    { "label": "Deploy 2026", "type": "shell", "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1 -Versions 2026 -Deploy", "problemMatcher": "$msCompile" },
+    { "label": "Deploy 2027", "type": "shell", "command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1 -Versions 2027 -Deploy", "problemMatcher": "$msCompile" },
+    {
+      "label": "Build preview",
+      "type": "shell",
+      "command": "dotnet build tools/CxPreflight.Preview",
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
