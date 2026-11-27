@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Runs the sidebar in a plain window with sample data, without Revit.
+    For fast UI work, run it from the repo root (see README).
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RevitVersion>2025</RevitVersion>
+    <UseWPF>true</UseWPF>
+    <StartupObject>CxPreflight.Preview.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\CxPreflight.UI\CxPreflight.UI.csproj" />
+  </ItemGroup>
+</Project>

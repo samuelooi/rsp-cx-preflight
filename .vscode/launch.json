@@ -1,0 +1,57 @@
+{
+  // F5 builds and deploys the add-in for one Revit version, starts that Revit
+  // under the debugger, and lets you set breakpoints in the add-in code.
+  // Revit 2024 runs on .NET Framework, so it uses the "clr" debugger.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Revit 2025",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Deploy 2025",
+      "program": "C:\\Program Files\\Autodesk\\Revit 2025\\Revit.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "justMyCode": true
+    },
+    {
+      "name": "Revit 2026",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Deploy 2026",
+      "program": "C:\\Program Files\\Autodesk\\Revit 2026\\Revit.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "justMyCode": true
+    },
+    {
+      "name": "Revit 2027",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Deploy 2027",
+      "program": "C:\\Program Files\\Autodesk\\Revit 2027\\Revit.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "justMyCode": true
+    },
+    {
+      "name": "Revit 2024",
+      "type": "clr",
+      "request": "launch",
+      "preLaunchTask": "Deploy 2024",
+      "program": "C:\\Program Files\\Autodesk\\Revit 2024\\Revit.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "justMyCode": true
+    },
+    {
+      "name": "Sidebar preview (no Revit)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build preview",
+      "program": "${workspaceFolder}/artifacts/bin/CxPreflight.Preview/R2025/Debug/CxPreflight.Preview.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole"
+    }
+  ]
+}

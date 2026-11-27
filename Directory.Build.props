@@ -1,0 +1,34 @@
+<Project>
+  <!--
+    One codebase, four Revit versions.
+    Pick the version with -p:RevitVersion=2024|2025|2026|2027 (default 2025).
+      2024        -> .NET Framework 4.8
+      2025, 2026  -> .NET 8   (Autodesk is moving later updates of these to .NET 10;
+                               a net8 build still loads there)
+      2027        -> .NET 10
+  -->
+  <PropertyGroup>
+    <RevitVersion Condition="'$(RevitVersion)' == ''">2025</RevitVersion>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Company>RSP</Company>
+    <Product>RSP CX Preflight</Product>
+    <Version>0.1.0</Version>
+    <!-- Lets the WPF and Revit projects compile on Linux and in CI; they still only run on Windows. -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <!-- Build output per Revit version, so the four builds never overwrite each other. -->
+    <BaseOutputPath>$(MSBuildThisFileDirectory)artifacts\bin\$(MSBuildProjectName)\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)artifacts\obj\$(MSBuildProjectName)\R$(RevitVersion)\</BaseIntermediateOutputPath>
+    <OutputPath>$(BaseOutputPath)R$(RevitVersion)\$(Configuration)\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <!-- Target framework for projects that run inside Revit (set RevitTarget=true in the project). -->
+  <PropertyGroup>
+    <RevitTargetFramework Condition="'$(RevitVersion)' == '2024'">net48</RevitTargetFramework>
+    <RevitTargetFramework Condition="'$(RevitVersion)' == '2025' Or '$(RevitVersion)' == '2026'">net8.0-windows</RevitTargetFramework>
+    <RevitTargetFramework Condition="'$(RevitVersion)' == '2027'">net10.0-windows</RevitTargetFramework>
+  </PropertyGroup>
+</Project>

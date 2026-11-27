@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copied to %APPDATA%\Autodesk\Revit\Addins\<version>\ by scripts\build.ps1 -Deploy.
+     The add-in files go in the CxPreflight folder next to it. -->
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>RSP CX Preflight</Name>
+    <Assembly>CxPreflight\CxPreflight.Addin.dll</Assembly>
+    <AddInId>6C1E3B7A-4F2D-4C9B-9E8A-2B5D7F0A1C34</AddInId>
+    <FullClassName>CxPreflight.Addin.App</FullClassName>
+    <VendorId>RSP</VendorId>
+    <VendorDescription>RSP</VendorDescription>
+  </AddIn>
+</RevitAddIns>
